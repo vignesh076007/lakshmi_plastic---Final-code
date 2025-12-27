@@ -922,9 +922,16 @@ const allImages = [
         }
 
         // If clicked on lightbox background
-        if (e.target.id === 'lightbox') {
-            closeLightbox();
-        }
+     // Optional: Add this if you want click outside with confirmation
+let enableBackgroundClose = false; // Set to false to disable
+
+// In event listener:
+if (e.target.id === 'lightbox' && enableBackgroundClose) {
+    // Optional: Show confirmation
+    if (confirm('Close lightbox?')) {
+        closeLightbox();
+    }
+}
 
         // Navigation arrows
         if (e.target.id === 'prevArrow' || e.target.closest('#prevArrow')) {
@@ -1115,7 +1122,5 @@ const allImages = [
 </script>
 
 </body>
-
-<!-- Mirrored from html.awaikenthemes.com/infine/service-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 12:06:14 GMT -->
 
 </html>
