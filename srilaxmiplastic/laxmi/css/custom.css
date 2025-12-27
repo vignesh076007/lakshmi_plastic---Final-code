@@ -470,9 +470,16 @@ header.main-header {
 .header-sticky {
 	position: relative;
 	top: 0;
-	z-index: 100;
+	 z-index: 9999 !important; /* Lower than lightbox (99999) */
 	transition: all 0.3s ease-in-out;
 }
+/* When lightbox is open, hide navbar */
+.lightbox.active ~ .header-sticky {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
 
 /* ❌ Removed bottom border line */
 .main-header .container-fluid::before {

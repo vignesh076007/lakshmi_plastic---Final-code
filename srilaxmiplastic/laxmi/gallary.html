@@ -109,13 +109,13 @@
         <div class="hero-gallery hero bg-section hero-video " >
             <!--Top TEXT -->
             <div class="export-top" >
-            <span>Precision-crafted hangers for global standards</span>       
+            <span>Precision-crafted hangers for global standards</span>
             </div>
 
             <!-- CENTER MAIN TEXT -->
-             <div class="export-center">      
+             <div class="export-center">
              <h3><span style="color: #ffffffe7;">Where quality meets craftsmanship</span></h3>
-             </div>      
+             </div>
               <!-- Bottom TEXT -->
             <div class="hero-section">
             <div class="hero-content">
@@ -147,12 +147,12 @@
                 <button class="filter-btn" data-category="fivestep">Five Tier</button>
                 <button class="filter-btn" data-category="box">Box Type</button>
                 <button class="filter-btn" data-category="bottomdrop">Bottom Hanger</button>
-                <button class="filter-btn" data-category="minihook">Mini Hook</button>               
+                <button class="filter-btn" data-category="minihook">Mini Hook</button>
                 <button class="filter-btn" data-category="sethanger">Set Hanger</button>
                  <button class="filter-btn" data-category="cliphanger">Clip Hanger</button>
                 <button class="filter-btn" data-category="frame">Frame Hangers</button>
                 <button class="filter-btn" data-category="invert">Inverted Hook Hanger</button>
-              
+
             </div>
 
             <!-- Gallery Grid -->
@@ -166,11 +166,43 @@
         </div>
 
         <!-- Lightbox -->
-        <div id="lightbox" class="lightbox">
-            <span class="close-btn">&times;</span>
+<!-- Lightbox -->
+<div id="lightbox">
+    <span class="close-btn">&times;</span>
+
+    <div class="lightbox-content">
+        <div class="image-container">
             <img id="lightboxImage" src="" alt="">
-            <p id="lightboxModel" class="lightbox-model"></p>
         </div>
+
+        <div class="lightbox-info">
+            <div id="lightboxModel"></div>
+            <div id="lightboxSize"></div>
+        </div>
+    </div>
+
+    <!-- Zoom Controls -->
+    <div class="zoom-controls">
+        <button class="zoom-btn" id="zoomInBtn">+</button>
+        <button class="zoom-btn" id="zoomOutBtn">-</button>
+    </div>
+
+    <button class="reset-zoom-btn" id="resetZoomBtn" title="Reset Zoom">⟳</button>
+
+    <!-- Add these inside your #lightbox div, after the existing content -->
+
+<!-- Zoom Percentage Display -->
+<div class="zoom-percentage" id="zoomPercentage">100%</div>
+
+<!-- Download Button -->
+<a href="#" class="download-btn" id="downloadBtn" title="Download Image" download>
+    ⬇️
+</a>
+
+<!-- Navigation Arrows -->
+<button class="nav-arrow prev-arrow" id="prevArrow" title="Previous Image">←</button>
+<button class="nav-arrow next-arrow" id="nextArrow" title="Next Image">→</button>
+</div>
     </section>
     <!-- ======= Gallery Section End ======= -->
 
@@ -328,13 +360,13 @@
         lastScroll = currentScroll;
     });
 
-    // ======= Optimized Gallery Script =======
-    const allImages = [
+    // ======= Gallery Images Array =======
+const allImages = [
 
     //single tier
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2012.JPG", category: "single", model: "Model: 10\" Top Hanger", size:"W: 10″ | H: 7″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2005.JPG", category: "single", model: "Model: 12\" Top Hanger", size:"W: 12″ | H: 7.5″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_6329.JPG",category: "single", model: "14\" 1 Step Top", size: "W: 14″ | H: 10″"},  
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_6329.JPG",category: "single", model: "14\" 1 Step Top", size: "W: 14″ | H: 10″"},
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2002.JPG", category: "single", model: "Model: 15\" Top Hanger",size:"W: 15″ | H: 8.1″"},
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2010.JPG", category: "single", model: "Model: GB54-0481", size:"W:9″ | H: 5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2020.JPG", category: "single", model: "Model: GB54-0561", size:"W: 10″ | H: 6″" },
@@ -358,17 +390,20 @@
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2112.JPG", category: "single", model: "Model: SL-211" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2113.JPG", category: "single", model: "Model: SL-212" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2075.JPG", category: "single", model: "Model: 646T9 BL", size:"W: 9″ | H: 4.25″" },
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2073.JPG", category: "single", model: "Model: 223", size:"W: 10″ | H: 6.5″" },
 
-   //two tier  
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2007.JPG", category: "double", model: "Model: 5400-0573", size:"W: 10″ | H: 7″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2026.JPG", category: "double", model: "Model: PB21", size:"W: 8″ | H: 5″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2032.JPG", category: "double", model: "Model: 569D6N", size:"W: 10″ | H: 8″" },
+
+
+   //two tier
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2040.JPG", category: "double", model: "Model: SL-139" },
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2007.JPG", category: "double", model: "Model: 5400-0573", size:"W: 10″ | H: 7″" },
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2032.JPG", category: "double", model: "Model: 569D6N", size:"W: 10″ | H: 8″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2062.JPG", category: "double", model: "Model: 10\" 2Step Top", size:"W: 10″ | H: 9″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2064.JPG", category: "double", model: "Model: 12\" 2Step Top", size:"W: 12″ | H: 9.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2071.JPG", category: "double", model: "Model: 100% Recycle Hanger", size:"W: 8.7″ | H: 4.7″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2073.JPG", category: "double", model: "Model: 223", size:"W: 10″ | H: 6.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2102.JPG", category: "double", model: "Model: CRF22cm 2 Step", size:"W: 8.75″ | H: 5″" },
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2026.JPG", category: "double", model: "Model: PB21", size:"W: 8″ | H: 5″" },
+
     {
         src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_6322.JPG",
         category: "double",
@@ -486,16 +521,16 @@
 
 
     //bottom drop
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2003.JPG", category: "bottomdrop", model: "Model: SL-102" }, 
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2003.JPG", category: "bottomdrop", model: "Model: SL-102" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2006.JPG", category: "bottomdrop", model: "Model: GB54-0805", size:"W: 6″ | H: 6.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2011.JPG", category: "bottomdrop", model: "Model: 8X4\" Bottom Drop" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2044.JPG", category: "bottomdrop", model: "Model: 5400-0793", size:"W: 7″ | H: 6.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2046.JPG", category: "bottomdrop", model: "Model: 5400-0648", size:"W: 7″ | H: 4″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2058.JPG", category: "bottomdrop", model: "Model: 8X4\" Bottom Drop" },    
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2066.JPG", category: "bottomdrop", model: "Model: 5400-0631", size:"W: 7″ | H: 8.5″" },    
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2058.JPG", category: "bottomdrop", model: "Model: 8X4\" Bottom Drop" },
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2066.JPG", category: "bottomdrop", model: "Model: 5400-0631", size:"W: 7″ | H: 8.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2087.JPG", category: "bottomdrop", model: "Model: 10\" Bottom Drop", size:"W: 10″ | H: 12″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2104.JPG", category: "bottomdrop", model: "Model: 6008",   size:"W: 8″ | H: 6.25″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2116.JPG", category: "bottomdrop", model: "Model: SL-215" }, 
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2116.JPG", category: "bottomdrop", model: "Model: SL-215" },
     // { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2115.JPG", category: "sethanger", model: "Model: 8\" Clip Hanger", size:"W: 8″ | H: 6″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2116.JPG", category: "bottomdrop", model: "Model: 10\" Trueno Drop", size:"W: 10″ | H: 9″" },
 
@@ -534,292 +569,502 @@
 
     //frame
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2080.JPG", category: "frame", model: "Model: LARGE FRAME HANGER", size:"W: 10.5″ | H: 13.5″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2081.JPG", category: "frame", model: "Model: MEDIUM FRAME HANGER", size:"W: 8″ | H: 12.75″" },    
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2081.JPG", category: "frame", model: "Model: MEDIUM FRAME HANGER", size:"W: 8″ | H: 12.75″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2086.JPG", category: "frame", model: "Model: SMALL FRAME HANGER", size:"W: 6.75″ | H: 11.25″" },
-    
-    
+
+
 
     //invert
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2037.JPG", category: "invert", model: "Model: SL-136" },    
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2037.JPG", category: "invert", model: "Model: SL-136" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2047.JPG", category: "invert", model: "Model: 5400-0494", size:"W: 7″ | H: 3.75″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2051.JPG", category: "invert", model: "GB54-0477/0637", size:"W: 9″/8″ | H: 7″" },   
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2051.JPG", category: "invert", model: "GB54-0477/0637", size:"W: 9″/8″ | H: 7″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2078.JPG", category: "invert", model: "Model: BK54-0795" , size:"W: 8.75″ | H: 4.5″"},
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2079.JPG", category: "invert", model: "Model: BK54-0636/0657", size:"W: 8.75″ | H: 2″" },    
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2079.JPG", category: "invert", model: "Model: BK54-0636/0657", size:"W: 8.75″ | H: 2″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2089.JPG", category: "invert", model: "Model: BK54-0638", size:"W: 8.75″ | H: 2.5″" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2091.JPG", category: "invert", model: "Model: BK54-0807", size:"W: 8.75″ | H: 6.75″" },    
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2091.JPG", category: "invert", model: "Model: BK54-0807", size:"W: 8.75″ | H: 6.75″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2099.JPG", category: "invert", model: "Model: SL-198" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2100.JPG", category: "invert", model: "Model: SL-199" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2101.JPG", category: "invert", model: "Model: BK54-0641 BL", size:"W: 8.75″ | H: 3.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2103.JPG", category: "invert", model: "Model: BK54-0820", size:"W: 12″ | H: 3″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2105.JPG", category: "invert", model: "Model: BK54-0638 BL LOGO", size:"W: 8.75″ | H: 2.5″" },
     { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2107.JPG", category: "invert", model: "Model: SL-206" },
-    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2108.JPG", category: "invert", model: "Model: BK54-0819", size:"W: 10″ | H: 2.75″" },    
+    { src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_2108.JPG", category: "invert", model: "Model: BK54-0819", size:"W: 10″ | H: 2.75″" },
     {
     src: "/srilaxmiplastic/srilaskshmiplastic/images/Image Gallery/DSC_6321.JPG",
     category: "invert",
     model: "BK54 - 0820",
     size: "W: 12″ | H: 5″"
     },
- 
+
 ];
 
-  const itemsPerPage = 30;
-let currentPage = 1;
-let currentCategory = "single"; // முதல் வடிகட்டி active-ஆக இருப்பதால்
+    // ======= Gallery Variables =======
+    const itemsPerPage = 30;
+    let currentPage = 1;
+    let currentCategory = "single";
 
-const galleryGrid = document.getElementById("galleryGrid");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const filterBtns = document.querySelectorAll(".filter-btn");
+    const galleryGrid = document.getElementById("galleryGrid");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const filterBtns = document.querySelectorAll(".filter-btn");
 
-// Image cache for better performance
-const imageCache = new Map();
-let isRendering = false;
-let renderRequestId = null;
+    // ======= Lightbox Elements =======
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxModel = document.getElementById("lightboxModel");
+    const lightboxSize = document.getElementById("lightboxSize");
+    const closeBtn = document.querySelector(".close-btn");
+    const zoomInBtn = document.getElementById("zoomInBtn");
+    const zoomOutBtn = document.getElementById("zoomOutBtn");
+    const resetZoomBtn = document.getElementById("resetZoomBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const zoomPercentage = document.getElementById("zoomPercentage");
+    const prevArrow = document.getElementById("prevArrow");
+    const nextArrow = document.getElementById("nextArrow");
 
-// Optimized render function with debouncing
-function renderGallery(immediate = false) {
-    if (isRendering) {
-        if (renderRequestId) {
-            cancelAnimationFrame(renderRequestId);
+    // ======= NEW: Lightbox Navigation Variables =======
+    let currentImageIndex = 0;
+    let currentCategoryImages = [];
+
+    // ======= Zoom Variables =======
+    let currentScale = 1;
+    const maxScale = 5;
+    const minScale = 1;
+    const scaleStep = 0.5;
+    let scrollPosition = 0;
+    let isPanning = false;
+    let startX, startY;
+    let translateX = 0, translateY = 0;
+    let currentImageSrc = '';
+    let currentImageData = null;
+
+    // ======= Gallery Functions =======
+    function renderGallery() {
+        const filtered = allImages.filter(img => img.category === currentCategory);
+        currentCategoryImages = filtered; // Store for navigation
+
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const pageImages = filtered.slice(start, end);
+
+        galleryGrid.innerHTML = '';
+
+        if (pageImages.length === 0) {
+            galleryGrid.innerHTML = `
+                <div class="empty-gallery">
+                    <p>No images found in this category.</p>
+                    <p>Select another category.</p>
+                </div>
+            `;
+            return;
         }
-        renderRequestId = requestAnimationFrame(() => renderGallery(true));
-        return;
-    }
-    
-    isRendering = true;
-    
-    // Filter images based on category
-    const filtered = allImages.filter(img => img.category === currentCategory);
-    
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const pageImages = filtered.slice(start, end);
-    
-    // Use DocumentFragment for batch DOM updates
-    const fragment = document.createDocumentFragment();
-    
-    if (pageImages.length === 0) {
-        // Show message when no images in category
-        const emptyDiv = document.createElement("div");
-        emptyDiv.classList.add("empty-gallery");
-        emptyDiv.innerHTML = `
-            <p>No images found in this category.</p>
-            <p>Select another category.</p>
-        `;
-        fragment.appendChild(emptyDiv);
-    } else {
-        pageImages.forEach(imgObj => {
+
+        pageImages.forEach((imgObj, index) => {
             const div = document.createElement("div");
             div.classList.add("gallery-item");
-            
-            // Update HTML structure - Model number only at bottom, not in overlay
+            div.dataset.index = start + index; // Store original index
+
             div.innerHTML = `
                 <div class="gallery-card">
                     <div class="card-inner">
-                        <img src="${imgObj.src}" alt="${imgObj.model}" loading="lazy" decoding="async">
-                        <div class="card-overlay">
-                            <!-- Empty overlay since badge removed -->
-                        </div>
+                        <img src="${imgObj.src}" alt="${imgObj.model}"
+                             loading="lazy" class="gallery-image"
+                             data-model="${imgObj.model}"
+                             data-size="${imgObj.size || ''}"
+                             data-src="${imgObj.src}">
+                        <div class="card-overlay"></div>
                     </div>
-                    <!-- Model number ALWAYS visible here -->
                     <div class="model-number">${imgObj.model}</div>
                     <div class="model-size">${imgObj.size || ""}</div>
                 </div>
             `;
-            fragment.appendChild(div);
-            
-            // Pre-cache image
-            if (!imageCache.has(imgObj.src)) {
-                const img = new Image();
-                img.src = imgObj.src;
-                imageCache.set(imgObj.src, img);
+            galleryGrid.appendChild(div);
+        });
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = end >= filtered.length;
+    }
+
+    // ======= Lightbox Functions =======
+    function openLightbox(imgSrc, model, size, index) {
+        console.log("Opening lightbox...");
+
+        // Store current image data
+        currentImageSrc = imgSrc;
+        currentImageData = { src: imgSrc, model, size };
+        currentImageIndex = index || 0;
+
+        // Store scroll position
+        scrollPosition = window.pageYOffset;
+
+        // Reset zoom and pan
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+
+        // Update lightbox content
+        lightboxImage.src = imgSrc;
+        lightboxImage.alt = model;
+        lightboxModel.textContent = model;
+        lightboxSize.textContent = size || '';
+
+        // Update download link
+        downloadBtn.href = imgSrc;
+        downloadBtn.download = model.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.jpg';
+
+        // Show lightbox
+        lightbox.classList.add('active');
+
+        // Prevent body scroll
+        document.body.classList.add('lightbox-open');
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+
+        // Reset zoom style and update percentage
+        updateTransform();
+        updateZoomPercentage();
+        lightboxImage.classList.remove('zoomed');
+
+        // Show/hide navigation arrows
+        updateNavigationArrows();
+
+        console.log("Lightbox opened!");
+    }
+
+    function closeLightbox() {
+        console.log("Closing lightbox...");
+
+        // Hide lightbox
+        lightbox.classList.remove('active');
+
+        // Restore body scroll
+        document.body.classList.remove('lightbox-open');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+
+        // Reset zoom
+        resetZoom();
+    }
+
+    // ======= NEW: Image Navigation =======
+    function navigateImage(direction) {
+        if (currentCategoryImages.length === 0) return;
+
+        if (direction === 'next') {
+            currentImageIndex = (currentImageIndex + 1) % currentCategoryImages.length;
+        } else {
+            currentImageIndex = (currentImageIndex - 1 + currentCategoryImages.length) % currentCategoryImages.length;
+        }
+
+        const nextImage = currentCategoryImages[currentImageIndex];
+        if (nextImage) {
+            openLightbox(nextImage.src, nextImage.model, nextImage.size, currentImageIndex);
+        }
+    }
+
+    function updateNavigationArrows() {
+        // Show arrows only if there are multiple images
+        if (currentCategoryImages.length > 1) {
+            prevArrow.style.display = 'flex';
+            nextArrow.style.display = 'flex';
+        } else {
+            prevArrow.style.display = 'none';
+            nextArrow.style.display = 'none';
+        }
+    }
+
+    // ======= Zoom Functions =======
+    function updateTransform() {
+        lightboxImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+
+        // Update cursor based on zoom level
+        if (currentScale > minScale) {
+            lightboxImage.classList.add('zoomed');
+            lightboxImage.style.cursor = 'grab';
+        } else {
+            lightboxImage.classList.remove('zoomed');
+            lightboxImage.style.cursor = 'zoom-in';
+        }
+
+        updateZoomPercentage();
+    }
+
+    function updateZoomPercentage() {
+        const percentage = Math.round(currentScale * 100);
+        zoomPercentage.textContent = `${percentage}%`;
+
+        // Change color based on zoom level
+        if (percentage > 100) {
+            zoomPercentage.style.background = 'rgba(255, 193, 7, 0.8)';
+            zoomPercentage.style.color = '#000';
+        } else if (percentage < 100) {
+            zoomPercentage.style.background = 'rgba(108, 117, 125, 0.8)';
+        } else {
+            zoomPercentage.style.background = 'rgba(0, 0, 0, 0.7)';
+        }
+    }
+
+    function zoomIn() {
+        if (currentScale < maxScale) {
+            currentScale += scaleStep;
+            updateTransform();
+        }
+    }
+
+    function zoomOut() {
+        if (currentScale > minScale) {
+            currentScale -= scaleStep;
+            updateTransform();
+        }
+    }
+
+    function resetZoom() {
+        currentScale = minScale;
+        translateX = 0;
+        translateY = 0;
+        updateTransform();
+    }
+
+    // ======= Panning Functions =======
+    function startPan(e) {
+        if (currentScale <= minScale) return;
+
+        e.preventDefault();
+        isPanning = true;
+        lightboxImage.style.cursor = 'grabbing';
+
+        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+
+        startX = clientX - translateX;
+        startY = clientY - translateY;
+    }
+
+    function pan(e) {
+        if (!isPanning) return;
+
+        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+
+        translateX = clientX - startX;
+        translateY = clientY - startY;
+
+        updateTransform();
+    }
+
+    function stopPan() {
+        isPanning = false;
+        if (currentScale > minScale) {
+            lightboxImage.style.cursor = 'grab';
+        }
+    }
+
+    // ======= Mouse Wheel Zoom =======
+    function handleWheel(e) {
+        if (!lightbox.classList.contains('active')) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (e.deltaY < 0) {
+            zoomIn();
+        } else {
+            zoomOut();
+        }
+    }
+
+    // ======= Event Listeners =======
+
+    // Gallery click handler
+    document.addEventListener('click', function(e) {
+        // If clicked on gallery item
+        const galleryItem = e.target.closest('.gallery-item');
+        if (galleryItem) {
+            const img = galleryItem.querySelector('img');
+            const model = img.dataset.model;
+            const size = img.dataset.size;
+            const src = img.dataset.src;
+            const index = parseInt(galleryItem.dataset.index);
+
+            openLightbox(src, model, size, index);
+            return;
+        }
+
+        // If clicked on gallery image directly
+        const galleryImage = e.target.closest('.gallery-image');
+        if (galleryImage && galleryImage.dataset.model) {
+            const model = galleryImage.dataset.model;
+            const size = galleryImage.dataset.size;
+            const src = galleryImage.dataset.src;
+            const parentItem = galleryImage.closest('.gallery-item');
+            const index = parentItem ? parseInt(parentItem.dataset.index) : 0;
+
+            openLightbox(src, model, size, index);
+            return;
+        }
+
+        // If clicked on close button
+        if (e.target.classList.contains('close-btn')) {
+            closeLightbox();
+        }
+
+        // If clicked on lightbox background
+        if (e.target.id === 'lightbox') {
+            closeLightbox();
+        }
+
+        // Navigation arrows
+        if (e.target.id === 'prevArrow' || e.target.closest('#prevArrow')) {
+            navigateImage('prev');
+        }
+
+        if (e.target.id === 'nextArrow' || e.target.closest('#nextArrow')) {
+            navigateImage('next');
+        }
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+
+        switch(e.key) {
+            case 'Escape':
+                closeLightbox();
+                break;
+            case '+':
+            case '=':
+                zoomIn();
+                break;
+            case '-':
+            case '_':
+                zoomOut();
+                break;
+            case '0':
+                resetZoom();
+                break;
+            case 'ArrowLeft':
+                navigateImage('prev');
+                break;
+            case 'ArrowRight':
+                navigateImage('next');
+                break;
+            case 'd':
+            case 'D':
+                downloadBtn.click();
+                break;
+        }
+    });
+
+    // Zoom buttons
+    zoomInBtn.addEventListener('click', zoomIn);
+    zoomOutBtn.addEventListener('click', zoomOut);
+    resetZoomBtn.addEventListener('click', resetZoom);
+
+    // Mouse wheel zoom
+    lightboxImage.addEventListener('wheel', handleWheel, { passive: false });
+
+    // Mouse panning
+    lightboxImage.addEventListener('mousedown', startPan);
+    document.addEventListener('mousemove', pan);
+    document.addEventListener('mouseup', stopPan);
+
+    // Touch panning for mobile
+    lightboxImage.addEventListener('touchstart', startPan);
+    document.addEventListener('touchmove', pan);
+    document.addEventListener('touchend', stopPan);
+
+    // Swipe for mobile navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightboxImage.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightboxImage.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next image
+                navigateImage('next');
+            } else {
+                // Swipe right - previous image
+                navigateImage('prev');
+            }
+        }
+    }
+
+    // Pagination buttons
+    nextBtn.addEventListener("click", () => {
+        const filtered = allImages.filter(img => img.category === currentCategory);
+        const end = currentPage * itemsPerPage;
+
+        if (end < filtered.length) {
+            currentPage++;
+            renderGallery();
+        }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderGallery();
+        }
+    });
+
+    // Filter buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const category = btn.getAttribute("data-category");
+
+            if (currentCategory !== category) {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                currentCategory = category;
+                currentPage = 1;
+                renderGallery();
             }
         });
-    }
-    
-    // Replace content in one operation
-    galleryGrid.innerHTML = '';
-    galleryGrid.appendChild(fragment);
-    
-    // Update pagination buttons
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = end >= filtered.length;
-    
-    // Preload next page images in background
-    if (pageImages.length > 0) {
-        setTimeout(() => {
-            const nextSet = filtered.slice(end, end + itemsPerPage);
-            preloadImages(nextSet);
-        }, 100);
-    }
-    
-    isRendering = false;
-}
-
-// Optimized preload function
-function preloadImages(images) {
-    images.forEach(imgObj => {
-        if (!imageCache.has(imgObj.src)) {
-            const img = new Image();
-            img.src = imgObj.src;
-            imageCache.set(imgObj.src, img);
-        }
     });
-}
 
-// Event handlers with throttling
-nextBtn.addEventListener("click", () => {
-    if (isRendering) return;
-    
-    const filtered = allImages.filter(img => img.category === currentCategory);
-    const end = currentPage * itemsPerPage;
-    
-    if (end < filtered.length) {
-        currentPage++;
-        renderGallery(true);
-    }
-});
+    // ======= Initialization =======
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("Page loaded - Initializing...");
 
-prevBtn.addEventListener("click", () => {
-    if (isRendering) return;
-    
-    if (currentPage > 1) {
-        currentPage--;
-        renderGallery(true);
-    }
-});
+        // Initial render
+        renderGallery();
 
-// Filter button handlers
-filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        if (isRendering) return;
-        
-        const category = btn.getAttribute("data-category");
-        
-        // Only proceed if category is different
-        if (currentCategory !== category) {
-            filterBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            currentCategory = category;
-            currentPage = 1; // Reset to first page
-            renderGallery(true);
-        }
-    });
-});
+        // Set current year
+        document.getElementById("year").textContent = new Date().getFullYear();
 
-// Add keyboard navigation
-document.addEventListener("keydown", (e) => {
-    if (isRendering) return;
-    
-    const filtered = allImages.filter(img => img.category === currentCategory);
-    const end = currentPage * itemsPerPage;
-    
-    switch(e.key) {
-        case "ArrowRight":
-            if (end < filtered.length) {
-                currentPage++;
-                renderGallery(true);
+        // URL scroll handling
+        const params = new URLSearchParams(window.location.search);
+        const scrollTarget = params.get("scroll");
+        if (scrollTarget) {
+            const section = document.getElementById(scrollTarget);
+            if (section) {
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 300);
             }
-            break;
-        case "ArrowLeft":
-            if (currentPage > 1) {
-                currentPage--;
-                renderGallery(true);
-            }
-            break;
-    }
-});
-
-// Initialize gallery on page load
-document.addEventListener("DOMContentLoaded", () => {
-    // Initial render
-    renderGallery(true);
-    
-    // Store allImages reference if needed
-    if (typeof allImages === 'undefined') {
-        console.warn("allImages is not defined. Make sure to define it before using this script.");
-    }
-});
-
-// Export utility functions if needed
-const galleryUtils = {
-    setCategory: function(category) {
-        if (isRendering) return false;
-        
-        const btn = document.querySelector(`.filter-btn[data-category="${category}"]`);
-        if (btn) {
-            filterBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            currentCategory = category;
-            currentPage = 1;
-            renderGallery(true);
-            return true;
-        }
-        return false;
-    },
-    
-    getCurrentCategory: function() {
-        return currentCategory;
-    },
-    
-    getCurrentPage: function() {
-        return currentPage;
-    },
-    
-    getTotalPages: function() {
-        const filtered = allImages.filter(img => img.category === currentCategory);
-        return Math.ceil(filtered.length / itemsPerPage);
-    },
-    
-    clearCache: function() {
-        imageCache.clear();
-    }
-};
-
-    // ===== Optimized Lightbox =====
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImage");
-    const lightboxModel = document.getElementById("lightboxModel");
-    const closeBtn = document.querySelector(".close-btn");
-
- 
- // Event delegation for better performance
-galleryGrid.addEventListener("click", (e) => {
-    const clickedImg = e.target.closest("img");
-    if (!clickedImg) return;
-
-    // Get model number from the .model-number div
-    const galleryCard = clickedImg.closest('.gallery-card');
-    const modelNumberDiv = galleryCard.querySelector('.model-number');
-    const model = modelNumberDiv ? modelNumberDiv.textContent : "";
-    
-    lightboxImg.src = clickedImg.src;
-    lightboxModel.textContent = model;
-    lightbox.classList.add("active");
-    document.body.style.overflow = "hidden";
-});
-
-    closeBtn.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-        document.body.style.overflow = "";
-    });
-
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove("active");
-            document.body.style.overflow = "";
         }
     });
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && lightbox.classList.contains("active")) {
-            lightbox.classList.remove("active");
-            document.body.style.overflow = "";
-        }
-    });
-
-    // Circular progress bar (keep existing)
+    // ======= Circular Progress Bar =======
     const progressPath = document.querySelector('.progress-wrap path');
     if (progressPath) {
         const pathLength = progressPath.getTotalLength();
@@ -856,31 +1101,6 @@ galleryGrid.addEventListener("click", (e) => {
             });
         });
     }
-
-    // Initial load after page is ready
-    document.addEventListener('DOMContentLoaded', () => {
-        // Set current year
-        document.getElementById("year").textContent = new Date().getFullYear();
-        
-        // Initial render with small delay to ensure page is ready
-        setTimeout(() => {
-            renderGallery();
-        }, 100);
-    });
-
-    // URL scroll handling
-    window.addEventListener("load", function () {
-        const params = new URLSearchParams(window.location.search);
-        const scrollTarget = params.get("scroll");
-        if (scrollTarget) {
-            const section = document.getElementById(scrollTarget);
-            if (section) {
-                setTimeout(() => {
-                    section.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 300);
-            }
-        }
-    });
 
     // Prevent browser scroll restore
     if ('scrollRestoration' in history) {
