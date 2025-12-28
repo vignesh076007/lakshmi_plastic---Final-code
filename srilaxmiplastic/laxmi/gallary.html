@@ -43,6 +43,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Fustat:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Fustat:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 
 <body class="poppins-extralight">
@@ -134,8 +136,8 @@
     <!-- ======= Gallery Section Start ======= -->
     <section id="" class="sedax-gallery section-padding">
         <div class="container text-center">
-            <!-- <h2 class="section-title-grid">Our Product Gallery</h2>
-            <p class="section-subtitle">Explore our wide range of hangers and designs</p> -->
+             <h2 class="section-title-grid">Our Product Gallery</h2>
+            <!-- <p class="section-subtitle">Explore our wide range of hangers and designs</p> -->
 
             <!-- Filter Buttons -->
             <div class="filter-btns">
@@ -633,8 +635,8 @@ const allImages = [
     let currentCategoryImages = [];
 
     // ======= Zoom Variables =======
-    let currentScale = 1;
-    const maxScale = 5;
+    let currentScale = 1.2;
+    const maxScale = 10;
     const minScale = 1;
     const scaleStep = 0.5;
     let scrollPosition = 0;
@@ -704,7 +706,7 @@ const allImages = [
         scrollPosition = window.pageYOffset;
 
         // Reset zoom and pan
-        currentScale = 1;
+        currentScale = 1.2;
         translateX = 0;
         translateY = 0;
 

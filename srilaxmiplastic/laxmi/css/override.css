@@ -286,7 +286,7 @@ header.main-header .header-sticky.active {
 /* ===== GALLERY SECTION ===== */
 .sedax-gallery {
   position: relative;
-  padding: 70px 0;
+  padding: 30px 0;
   background-image: url('/srilaxmiplastic/srilaskshmiplastic/images/image gallery/backgroundgallaryimg.png');
   background-repeat: no-repeat;
   background-position: center center;
@@ -1042,7 +1042,7 @@ body.lightbox-open .container {
   margin-right: 8px;
 }
 
-/* for hole body font */
+/* for hole body font-family */
 .poppins-extralight {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
