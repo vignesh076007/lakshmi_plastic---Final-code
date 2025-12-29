@@ -197,9 +197,9 @@
 <div class="zoom-percentage" id="zoomPercentage">100%</div>
 
 <!-- Download Button -->
-<!-- <a href="#" class="download-btn" id="downloadBtn" title="Download Image" download>
+<a href="#" class="download-btn" id="downloadBtn" title="Download Image" download>
     ⬇️
-</a> -->
+</a>
 
 <!-- Navigation Arrows -->
 <button class="nav-arrow prev-arrow" id="prevArrow" title="Previous Image">←</button>
@@ -625,7 +625,7 @@ const allImages = [
     const zoomInBtn = document.getElementById("zoomInBtn");
     const zoomOutBtn = document.getElementById("zoomOutBtn");
     const resetZoomBtn = document.getElementById("resetZoomBtn");
-    // const downloadBtn = document.getElementById("downloadBtn");
+     const downloadBtn = document.getElementById("downloadBtn");
     const zoomPercentage = document.getElementById("zoomPercentage");
     const prevArrow = document.getElementById("prevArrow");
     const nextArrow = document.getElementById("nextArrow");
@@ -717,8 +717,8 @@ const allImages = [
         lightboxSize.textContent = size || '';
 
         // Update download link
-        // downloadBtn.href = imgSrc;
-        // downloadBtn.download = model.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.jpg';
+        downloadBtn.href = imgSrc;
+        downloadBtn.download = model.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.jpg';
 
         // Show lightbox
         lightbox.classList.add('active');
@@ -972,7 +972,7 @@ if (e.target.id === 'lightbox' && enableBackgroundClose) {
                 break;
             case 'd':
             case 'D':
-                // downloadBtn.click();
+                 downloadBtn.click();
                 break;
         }
     });

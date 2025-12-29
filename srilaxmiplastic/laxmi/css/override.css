@@ -314,9 +314,24 @@ header.main-header .header-sticky.active {
 .section-title-grid {
   font-size: 2rem;
   font-weight: 700;
-  color: #222;
+  color: #ad4a4dfc;
   margin-bottom: 10px;
-  text-align: center; /* Added for better alignment */
+  text-align: center;
+
+  opacity: 0;                 /* 🔴 first hidden */
+  animation: fadeInHero 1.2s ease forwards;
+  animation-delay: 5s;        /* ⏳ 5 seconds delay */
+}
+
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* bottom to top */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section-subtitle {
@@ -334,6 +349,8 @@ header.main-header .header-sticky.active {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+
 
 /* ===== FILTER BUTTONS ===== */
 .filter-btns {
@@ -1008,6 +1025,11 @@ body.lightbox-open .container {
         font-size: 1rem;
         padding: 0 15px;
     }
+
+     .image-container {
+    width: auto;
+   }
+
 }
 
 @media (max-width: 480px) {
@@ -1304,7 +1326,7 @@ body.lightbox-open .container {
         url('/srilaxmiplastic/srilaskshmiplastic/images/product dev/Hanger5.jpg');
     background-size: cover;
     background-position: center;
-    padding: 120px 0;
+    padding: 45px 0;
     overflow: hidden;
     color: #111111;
 }

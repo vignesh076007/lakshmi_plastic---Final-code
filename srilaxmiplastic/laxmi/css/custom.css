@@ -2371,6 +2371,24 @@ section {
 	margin-right: 40px;
 }
 
+
+
+.patron-title {
+  color: #ed1c24;
+  width: max-content;
+}
+
+/* 📱 Mobile View */
+@media (max-width: 768px) {
+  .patron-title {
+    width: 100%;
+    text-align: start;
+    line-height: 1.3;
+    font-size: 28px; /* adjust if needed */
+  }
+}
+
+
 /************************************/
 /***    12. Company Growth Css    ***/
 /************************************/
@@ -6308,7 +6326,7 @@ section {
 	}
 
 	.scrolling-content span img {
-		max-width: 40px;
+		max-width: 60px;
 		margin-right: 20px;
 	}
 
